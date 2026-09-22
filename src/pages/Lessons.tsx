@@ -1,0 +1,34 @@
+import { Link } from 'react-router-dom'
+import { useStudent } from '../context/StudentContext'
+import { lessons } from '../data/lessons'
+
+export function Lessons() {
+  const { state } = useStudent()
+
+  return (
+    <section>
+      <div className="kicker">บทเรียนทฤษฎีที่ลงมือต่อได้</div>
+      <h1>6 บท สั้น แน่น พร้อมตรวจความเข้าใจ</h1>
+      <p className="lead">
+        แต่ละบทมีเป้าหมาย ตัวอย่างโค้ด จุดเชื่อมกับการปฏิบัติ และแบบตรวจท้ายบท 2 ข้อ
+        เมื่อเรียนครบอย่างน้อย 4 บท จะปลดล็อกข้อสอบหลังเรียน
+      </p>
+      <div className="lesson-list mt">
+        {lessons.map((lesson) => {
+          const done = state.completedLessons.includes(lesson.id)
+          return (
+            <Link key={lesson.id} className="card lesson-item" to={`/lessons/${lesson.id}`}>
+              <div className="lesson-index">{String(lesson.order).padStart(2, '0')}</div>
+              <div>
+                <h3>{lesson.title}</h3>
+                <p>{lesson.subtitle}</p>
+                <div className="tiny">{lesson.minutes} นาที · แบบตรวจท้ายบท 2 ข้อ</div>
+              </div>
+              <div>{done ? <span className="ok">เรียนแล้ว</span> : <span className="muted">ยังไม่จบ</span>}</div>
+            </Link>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
