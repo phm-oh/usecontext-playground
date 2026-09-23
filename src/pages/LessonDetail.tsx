@@ -74,12 +74,12 @@ export function LessonDetail() {
         </section>
 
         <section className="card">
-          <h3>ตรวจความเข้าใจ</h3>
-          <p>2 ข้อ · บันทึกเป็นคะแนนเสริมของบทนี้</p>
+          <h3>แบบฝึกหัดท้ายบท</h3>
+          <p>เลือกคำตอบทั้ง 2 ข้อ แล้วกดตรวจคำตอบ ข้อนี้เป็นคำถามสั้น ๆ ไม่ใช่การเขียนโค้ด</p>
           <QuizForm
             questions={lesson.check}
             lockedAnswers={savedAnswers}
-            submitLabel="ตรวจท้ายบท"
+            submitLabel="ตรวจคำตอบ"
             onSubmit={(answers) => {
               const score = lesson.check.filter((q) => answers[q.id] === q.answer).length
               saveLessonCheck(lesson.id, score, answers)
@@ -105,7 +105,7 @@ export function LessonDetail() {
           </Link>
         ) : (
           <Link className="btn" to="/playground">
-            ไป Playground
+            ไปแบบฝึกปฏิบัติ
           </Link>
         )}
       </div>
@@ -116,9 +116,9 @@ export function LessonDetail() {
           score={checkScore}
           total={lesson.check.length}
           percent={Math.round((checkScore / lesson.check.length) * 100)}
-          note="บันทึกแล้วใน StudentContext และจะรวมในหน้าคะแนน"
+          note="บันทึกคะแนนแบบฝึกหัดท้ายบทแล้ว"
           primaryTo={next ? `/lessons/${next.id}` : '/playground'}
-          primaryLabel={next ? 'ไปบทถัดไป' : 'ไป Playground'}
+          primaryLabel={next ? 'ไปบทถัดไป' : 'ไปแบบฝึกปฏิบัติ'}
           onClose={() => setCheckScore(null)}
         />
       ) : null}

@@ -5,14 +5,15 @@ const links = [
   { to: '/', label: 'หน้าแรก' },
   { to: '/pretest', label: 'ก่อนเรียน' },
   { to: '/lessons', label: 'บทเรียน' },
-  { to: '/playground', label: 'Playground' },
+  { to: '/examples', label: 'ตัวอย่างโค้ด' },
+  { to: '/playground', label: 'แบบฝึกปฏิบัติ' },
   { to: '/posttest', label: 'หลังเรียน' },
-  { to: '/results', label: 'คะแนนฉัน' },
-  { to: '/classroom', label: 'ผลชั้นเรียน' },
+  { to: '/results', label: 'คะแนนที่ทำ' },
+  { to: '/classroom', label: 'ผลทั้งชั้น' },
 ]
 
 export function Layout() {
-  const { state, progressPercent } = useStudent()
+  const { progressPercent } = useStudent()
 
   return (
     <div>
@@ -20,10 +21,10 @@ export function Layout() {
         <div className="shell">
           <div className="topbar-inner">
             <NavLink to="/" className="brand">
-              <span className="brand-mark">C</span>
+              <span className="brand-mark">{'{ }'}</span>
               <span>
-                Context Lab
-                <small>ชุดสื่อ useContext · ปวส. เทคโนโลยีสารสนเทศ</small>
+                ห้องเรียน useContext
+                <small>ปวส. สาขาเทคโนโลยีสารสนเทศ</small>
               </span>
             </NavLink>
             <nav className="nav">
@@ -33,9 +34,6 @@ export function Layout() {
                 </NavLink>
               ))}
             </nav>
-            <div className="student-chip">
-              {state.profile ? `${state.profile.name} · ${state.profile.studentId}` : 'ยังไม่ลงทะเบียน'}
-            </div>
           </div>
           <div className="progress-track" aria-label="ความคืบหน้า">
             <div className="progress-fill" style={{ width: `${progressPercent}%` }} />

@@ -10,30 +10,17 @@ export function PreTest() {
   const { state, saveQuiz } = useStudent()
   const [result, setResult] = useState<QuizResult | null>(null)
 
-  if (!state.profile) {
-    return (
-      <section className="card">
-        <h2>ยังไม่ลงทะเบียน</h2>
-        <p>กรุณาลงชื่อที่หน้าแรกก่อนเริ่มแบบทดสอบก่อนเรียน</p>
-        <Link className="btn" to="/">
-          ไปหน้าแรก
-        </Link>
-      </section>
-    )
-  }
-
   return (
     <section>
       <div className="kicker">แบบทดสอบก่อนเรียน</div>
-      <h1>วัดพื้นฐานก่อนเข้าห้องแล็บ</h1>
+      <h1>ตอบตามที่รู้ตอนนี้ ยังไม่ต้องเปิดบทเรียน</h1>
       <p className="lead">
-        10 ข้อ · ข้อละ 2 คะแนน รวม 20 คะแนน ไม่จับเวลา
-        ใช้ดูจุดตั้งต้นก่อนเรียนเนื้อหาและลงมือใน Playground
+        10 ข้อ ข้อละ 2 คะแนน เต็ม 20 คะแนน เลือกให้ครบทุกข้อแล้วกดส่ง เห็นคะแนนได้ทันที
       </p>
       {state.pretest ? (
         <div className="card mt">
-          <h3>ทำไปแล้ว ได้ {state.pretest.score}/{state.pretest.total} คะแนน</h3>
-          <p>ดูเฉลยด้านล่างได้ หรือไปเรียนเนื้อหาต่อ</p>
+          <h3>ส่งไปแล้ว ได้ {state.pretest.score}/{state.pretest.total} คะแนน</h3>
+          <p>เลื่อนลงไปดูเฉลยแต่ละข้อได้ หรือไปเริ่มบทเรียนต่อเลย</p>
           <Link className="btn" to="/lessons">
             ไปบทเรียน
           </Link>

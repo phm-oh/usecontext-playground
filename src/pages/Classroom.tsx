@@ -14,17 +14,18 @@ export function Classroom() {
         </button>
       </div>
       <div className="kicker">ผลการใช้ระบบ · กลุ่มทดลอง 20 คน</div>
-      <h1>ผลคะแนนนักเรียนทั้งชั้น</h1>
+      <h1>คะแนนของนักเรียนทั้งห้อง ก่อนและหลังเรียน</h1>
       <p className="lead">
-        นักเรียน ปวส. สาขาเทคโนโลยีสารสนเทศ ที่เรียนชุดสื่อ useContext
-        แบบทดสอบเต็ม {FULL_SCORE} คะแนน เกณฑ์ผ่าน {PASS_SCORE} คะแนน ({Math.round((PASS_SCORE / FULL_SCORE) * 100)}%)
+        นักเรียน ปวส. สาขาเทคโนโลยีสารสนเทศ ที่เรียนชุดสื่อ useContext ชุดนี้
+        ข้อสอบเต็ม {FULL_SCORE} คะแนน ถือว่าผ่านเมื่อได้ {PASS_SCORE} คะแนนขึ้นไป
+        ({Math.round((PASS_SCORE / FULL_SCORE) * 100)}%)
       </p>
 
       <div className="stats">
         <div className="card">
           <div className="tiny">จำนวนนักเรียน</div>
           <div className="num">{classroomStats.count}</div>
-          <p>ลงทะเบียนและใช้ระบบครบวงจร</p>
+          <p>รายชื่อนักเรียนในกลุ่มที่ทดลองใช้ชุดสื่อ</p>
         </div>
         <div className="card">
           <div className="tiny">คะแนนเฉลี่ยก่อนเรียน</div>
@@ -91,7 +92,6 @@ export function Classroom() {
             <thead>
               <tr>
                 <th>ที่</th>
-                <th>รหัส</th>
                 <th>ชื่อ–สกุล</th>
                 <th>ก่อนเรียน</th>
                 <th>หลังเรียน</th>
@@ -107,7 +107,6 @@ export function Classroom() {
                 return (
                   <tr key={student.studentId}>
                     <td>{student.no}</td>
-                    <td>{student.studentId}</td>
                     <td className="name-cell">{fullName(student)}</td>
                     <td>{student.pre}</td>
                     <td>{student.post}</td>
@@ -125,7 +124,7 @@ export function Classroom() {
             </tbody>
             <tfoot>
               <tr>
-                <td colSpan={3}>ค่าเฉลี่ยทั้งชั้น</td>
+                <td colSpan={2}>ค่าเฉลี่ยทั้งชั้น</td>
                 <td>{text.preMean}</td>
                 <td>{text.postMean}</td>
                 <td className="ok">+{text.gain}</td>

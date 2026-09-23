@@ -4,6 +4,7 @@ import { Home } from './pages/Home'
 import { PreTest } from './pages/PreTest'
 import { Lessons } from './pages/Lessons'
 import { LessonDetail } from './pages/LessonDetail'
+import { Examples } from './pages/Examples'
 import { Playground } from './pages/Playground'
 import { PostTest } from './pages/PostTest'
 import { Results } from './pages/Results'
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/pretest" element={<PreTest />} />
         <Route path="/lessons" element={<Lessons />} />
         <Route path="/lessons/:id" element={<LessonDetail />} />
+        <Route path="/examples" element={<Examples />} />
         <Route path="/playground" element={<Playground />} />
         <Route path="/posttest" element={<PostTest />} />
         <Route path="/results" element={<Results />} />
