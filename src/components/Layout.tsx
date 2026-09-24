@@ -7,6 +7,7 @@ const links = [
   { to: '/lessons', label: 'บทเรียน' },
   { to: '/examples', label: 'ตัวอย่างโค้ด' },
   { to: '/playground', label: 'แบบฝึกปฏิบัติ' },
+  { to: '/ebook', label: 'เอกสารเสริม useState' },
   { to: '/posttest', label: 'หลังเรียน' },
   { to: '/results', label: 'คะแนนที่ทำ' },
   { to: '/classroom', label: 'ผลทั้งชั้น' },
