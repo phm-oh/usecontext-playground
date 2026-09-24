@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { classroomStatText, classroomStats } from '../data/classroom'
+import { ebookMeta } from '../data/ebook'
 import { lessons } from '../data/lessons'
 import { FULL_SCORE, PASS_SCORE } from '../lib/scoring'
 
@@ -52,6 +53,9 @@ export function Home() {
             <Link className="ghost light" to="/examples">
               ดูตัวอย่างโค้ด
             </Link>
+            <a className="ghost light" href={ebookMeta.driveUrl} target="_blank" rel="noreferrer">
+              เปิด E-book
+            </a>
           </div>
         </div>
         <div className="panel">
@@ -113,6 +117,22 @@ export function Home() {
             </Link>
           </article>
         ))}
+        <article className="card path-card">
+          <span className="path-no">E</span>
+          <h2>E-book เรื่อง useState</h2>
+          <p>
+            คู่มือประกอบการเรียนรู้เรื่องการทำงานของ useState จากครูภาณุเมศ ชุมภูนท์
+            เปิดอ่านไฟล์ PDF ฉบับเต็มบน Google Drive
+          </p>
+          <div className="stack">
+            <a className="btn" href={ebookMeta.driveUrl} target="_blank" rel="noreferrer">
+              เปิด E-book
+            </a>
+            <Link className="ghost" to="/ebook">
+              อ่านสรุปในเว็บ
+            </Link>
+          </div>
+        </article>
       </section>
     </div>
   )

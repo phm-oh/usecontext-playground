@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom'
 import { useStudent } from '../context/StudentContext'
+import { ebookMeta } from '../data/ebook'
 
 const links = [
   { to: '/', label: 'หน้าแรก' },
@@ -7,7 +8,7 @@ const links = [
   { to: '/lessons', label: 'บทเรียน' },
   { to: '/examples', label: 'ตัวอย่างโค้ด' },
   { to: '/playground', label: 'แบบฝึกปฏิบัติ' },
-  { to: '/ebook', label: 'เอกสารเสริม useState' },
+  { to: '/ebook', label: 'เอกสารเสริม' },
   { to: '/posttest', label: 'หลังเรียน' },
   { to: '/results', label: 'คะแนนที่ทำ' },
   { to: '/classroom', label: 'ผลทั้งชั้น' },
@@ -34,6 +35,9 @@ export function Layout() {
                   {link.label}
                 </NavLink>
               ))}
+              <a href={ebookMeta.driveUrl} target="_blank" rel="noreferrer">
+                E-book
+              </a>
             </nav>
           </div>
           <div className="progress-track" aria-label="ความคืบหน้า">

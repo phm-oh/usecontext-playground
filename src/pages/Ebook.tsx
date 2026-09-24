@@ -81,9 +81,15 @@ export function Ebook() {
         <p>จัดทำโดย {ebookMeta.author}</p>
         <div className="stack mt">
           <a className="btn" href={ebookMeta.driveUrl} target="_blank" rel="noreferrer">
-            เปิด PDF ฉบับเต็ม
+            เปิด E-book (PDF)
           </a>
         </div>
+        <p className="tiny mt">
+          ลิงก์ไฟล์:{' '}
+          <a href={ebookMeta.driveUrl} target="_blank" rel="noreferrer">
+            {ebookMeta.driveUrl}
+          </a>
+        </p>
       </div>
 
       <div className="card mt">
